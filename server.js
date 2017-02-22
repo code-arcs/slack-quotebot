@@ -3,23 +3,18 @@
 const Hapi = require('hapi');
 
 const server = new Hapi.Server();
-server.connection({ port: 3000, host: 'localhost' });
+server.connection({port: 3000, host: 'localhost'});
 
-server.route({
-    method: 'GET',
-    path: '/',
-    handler: function (request, reply) {
-        reply('Hello, world!');
-    }
-});
-
-server.route({
-    method: 'GET',
-    path: '/{name}',
-    handler: function (request, reply) {
-        reply('Hello, ' + encodeURIComponent(request.params.name) + '!');
-    }
-});
+// load multiple plugins
+server.register([{
+        register: require('./plugins/quotebot'),
+        options: {plugins: [require('./plugins/testPlugin'), require('./plugins/testPlugin2')]}
+    }],
+    (err) => {
+        if (err) {
+            console.error('Failed to load a plugin:', err);
+        }
+    });
 
 server.start((err) => {
 
