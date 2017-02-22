@@ -1,0 +1,23 @@
+{
+  "name": "slack-quotebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-arcs/slack-quotebot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/code-arcs/slack-quotebot/issues"
+  },
+  "homepage": "https://github.com/code-arcs/slack-quotebot#readme",
+  "dependencies": {
+    "hapi": "^16.1.0"
+  }
+}
